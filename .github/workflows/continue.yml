@@ -1,5 +1,5 @@
 ---
-     name: continue Website Deployment
+     name: Continue Website Deployment
      on:
        push:
          branches:
