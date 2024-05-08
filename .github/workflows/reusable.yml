@@ -8,8 +8,18 @@
              required: false
              default: dist
              type: string
+         outputs:
+            results:
+              description: the result of the deployment operation
+              value: ${{ jobs.deploy.outputs.outcome }}
+         # secrects:
+           # some-secret:
+             # required: false
+
      jobs:
        deploy:
+         outputs:
+           outcome: ${{ steps.set-result.outputs.step-result }}
          runs-on: ubuntu-latest
          steps:
            - name: Checkout repository
@@ -22,4 +32,7 @@
              run: ls
            - name: Output information
              run: echo "Deploying & uploading..."
+           - name: Set result output
+             id: set-result
+             run: echo "::set-output name=step-result::success"
      
