@@ -7,9 +7,9 @@
          strategy:
            matrix:
              node-version:
-               - 12
-               - 14
                - 16
+               - 18
+               - 20
              operating-system:
                - ubuntu-latest
                - windows-latest
